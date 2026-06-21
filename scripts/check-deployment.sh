@@ -18,6 +18,7 @@ for file in $FILES; do
   mkdir -p "$(dirname -- "$remote_file")"
 
   if ! curl --fail --silent --show-error --location \
+    --connect-timeout 10 --max-time 30 \
     "$PRODUCTION_URL/$file" --output "$remote_file"; then
     printf 'FAIL %s could not be downloaded\n' "$file"
     FAILED=1
