@@ -3,7 +3,7 @@ const projects = [
   { id: 'midnight-rider', src: 'assets/cowboy-rider.webp', video: 'assets/visual-identity-cowboy.m4v', title: 'Midnight Rider', filter: 'identity', filters: ['identity', 'video'], category: 'Visual identity', year: '2026' },
   { id: 'video-concept', src: 'assets/eat-play-love-helmich.jpeg', video: 'assets/video-cut-edit.m4v', title: 'Video Concept → Cut', filter: 'video', category: 'Concept / Production', year: '2025' },
   { id: 'berlin-rider', src: 'assets/berlin-rider.png', title: 'Berlin Rider', filter: 'identity', category: 'Visual concept', year: '2026' },
-  { id: 'freiboitar', src: 'assets/freiboitar-epl.png', title: 'Freiboitar', filter: 'identity', category: 'Artist identity', year: '2026' },
+  { id: 'freiboitar', src: 'assets/freiboitar-epl.png', heroVideo: 'assets/freiboitar-artist-identity.m4v', title: 'Freiboitar', filter: 'identity', category: 'Artist identity', year: '2026' },
   { id: 'spicy-tofu', src: 'assets/spicy-tofu-minimal.jpg', title: 'Spicy Tofu Crunch', filter: 'identity', category: 'Food identity', year: '2026' },
   { id: 'epl-festival', src: 'assets/epl-festival.jpg', title: 'Eat Play Love Festival', filter: 'campaign', category: 'Campaign design', year: '2026' },
   { id: 'secret-lineup', src: 'assets/open-air-lineup.jpeg', title: 'Secret Lineup', filter: 'campaign', category: 'Campaign design', year: '2026' },
@@ -103,7 +103,8 @@ function syncPosterMediaAspect(media) {
     const width = isVideo ? media.videoWidth : media.naturalWidth;
     const height = isVideo ? media.videoHeight : media.naturalHeight;
     if (!width || !height) return;
-    media.closest('.poster').style.aspectRatio = `${width} / ${height}`;
+    const poster = media.closest('.poster');
+    if (poster) poster.style.aspectRatio = `${width} / ${height}`;
   };
   const event = media.tagName === 'VIDEO' ? 'loadedmetadata' : 'load';
   media.addEventListener(event, syncAspectRatio, { once: true });
@@ -111,9 +112,10 @@ function syncPosterMediaAspect(media) {
 }
 
 function createHeroMedia(project) {
-  if (project.video) {
+  const videoSource = project.heroVideo || project.video;
+  if (videoSource) {
     const video = document.createElement('video');
-    video.src = project.video;
+    video.src = videoSource;
     if (project.src) video.poster = project.src;
     video.autoplay = true;
     video.muted = true;
