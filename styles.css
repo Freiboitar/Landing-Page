@@ -1,4 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Caveat:wght@500;600&family=Roboto+Condensed:wght@400;500;600;700&display=swap');
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("assets/fonts/barlow-condensed-500.ttf") format("truetype"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("assets/fonts/barlow-condensed-600.ttf") format("truetype"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("assets/fonts/barlow-condensed-700.ttf") format("truetype"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 800; font-display: swap; src: url("assets/fonts/barlow-condensed-800.ttf") format("truetype"); }
+@font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 900; font-display: swap; src: url("assets/fonts/barlow-condensed-900.ttf") format("truetype"); }
+@font-face { font-family: "Barlow Condensed"; font-style: italic; font-weight: 700; font-display: swap; src: url("assets/fonts/barlow-condensed-italic-700.ttf") format("truetype"); }
+@font-face { font-family: "Barlow Condensed"; font-style: italic; font-weight: 800; font-display: swap; src: url("assets/fonts/barlow-condensed-italic-800.ttf") format("truetype"); }
+@font-face { font-family: "Barlow Condensed"; font-style: italic; font-weight: 900; font-display: swap; src: url("assets/fonts/barlow-condensed-italic-900.ttf") format("truetype"); }
+@font-face { font-family: "Caveat"; font-style: normal; font-weight: 500; font-display: swap; src: url("assets/fonts/caveat-500.ttf") format("truetype"); }
+@font-face { font-family: "Caveat"; font-style: normal; font-weight: 600; font-display: swap; src: url("assets/fonts/caveat-600.ttf") format("truetype"); }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("assets/fonts/roboto-condensed-400.ttf") format("truetype"); }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("assets/fonts/roboto-condensed-500.ttf") format("truetype"); }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("assets/fonts/roboto-condensed-600.ttf") format("truetype"); }
+@font-face { font-family: "Roboto Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("assets/fonts/roboto-condensed-700.ttf") format("truetype"); }
 
 :root {
   --paper: #f4e6c8;
@@ -240,6 +253,20 @@ a { text-underline-offset: 5px; }
 .contact footer span:last-child { text-align: right; }
 .footer-socials { display: flex; gap: 26px; }
 .footer-socials a { color: inherit; }
+.footer-legal { display: flex; gap: 18px; }
+.footer-legal a { color: inherit; }
+
+.legal-page { min-height: 100svh; padding: 135px max(5vw, 24px) 80px; background: var(--paper); }
+.legal-page-header { display: flex; justify-content: space-between; align-items: end; gap: 30px; padding-bottom: 22px; border-bottom: 1px dashed var(--line); }
+.legal-page h1 { margin: 0; font-family: "Barlow Condensed", Impact, sans-serif; font-size: clamp(72px, 12vw, 180px); font-style: italic; line-height: .75; letter-spacing: -.04em; text-transform: uppercase; }
+.legal-page-header a { flex: 0 0 auto; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+.legal-content { width: min(760px, 100%); margin: 70px auto 0; font-size: 17px; line-height: 1.55; }
+.legal-content h2 { margin: 52px 0 12px; font-size: 25px; font-style: normal; line-height: 1.1; letter-spacing: 0; text-transform: uppercase; }
+.legal-content h2:first-child { margin-top: 0; }
+.legal-content p { margin: 0 0 18px; }
+.legal-content a { overflow-wrap: anywhere; }
+.legal-content address { margin-bottom: 24px; font-style: normal; }
+.legal-meta { margin-top: 60px; padding-top: 18px; border-top: 1px dashed var(--line); font-size: 12px; text-transform: uppercase; }
 
 .lightbox { width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0; color: var(--paper); background: rgba(12,18,20,.97); }
 .lightbox::backdrop { background: transparent; }
@@ -319,6 +346,12 @@ a { text-underline-offset: 5px; }
   .contact { padding: 30px 18px 20px; }
   .contact h2 { font-size: 24vw; }
   .contact > a { align-self: flex-start; font-size: 24px; }
+  .contact footer { flex-wrap: wrap; gap: 18px 26px; }
+  .footer-socials, .footer-legal { flex-wrap: wrap; }
+  .legal-page { padding-top: 105px; }
+  .legal-page-header { display: block; }
+  .legal-page-header a { display: inline-block; margin-top: 28px; }
+  .legal-content { margin-top: 45px; font-size: 16px; }
   .contact footer { gap: 18px; flex-wrap: wrap; }
   .footer-socials { order: 3; width: 100%; gap: 18px; flex-wrap: wrap; }
 }
