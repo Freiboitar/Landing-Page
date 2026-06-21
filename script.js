@@ -116,7 +116,7 @@ function createHeroMedia(project) {
   if (videoSource) {
     const video = document.createElement('video');
     video.src = videoSource;
-    if (project.src) video.poster = project.src;
+    if (project.src && !project.heroVideo) video.poster = project.src;
     video.autoplay = true;
     video.muted = true;
     video.loop = true;
