@@ -244,6 +244,31 @@ const previewObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '150px 0px', threshold: .2 });
 document.querySelectorAll('.project').forEach((project) => previewObserver.observe(project));
 
+const captionProjects = [...document.querySelectorAll('.project')];
+const captionProjectsInFocus = new Set();
+
+function updateActiveProjectCaption() {
+  captionProjects.forEach((project) => project.classList.remove('is-caption-active'));
+  if (projectStack.classList.contains('is-filtered')) return;
+
+  const activeProject = [...captionProjectsInFocus]
+    .filter((project) => !project.hidden)
+    .sort((a, b) => captionProjects.indexOf(a) - captionProjects.indexOf(b))
+    .at(-1);
+  (activeProject || captionProjects.find((project) => !project.hidden))?.classList.add('is-caption-active');
+}
+
+const captionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) captionProjectsInFocus.add(entry.target);
+    else captionProjectsInFocus.delete(entry.target);
+  });
+  updateActiveProjectCaption();
+}, { rootMargin: '-28% 0px -58%', threshold: .01 });
+
+captionProjects.forEach((project) => captionObserver.observe(project));
+updateActiveProjectCaption();
+
 document.querySelectorAll('[data-hero-filter]').forEach((button) => {
   button.addEventListener('click', () => {
     document.querySelectorAll('[data-hero-filter]').forEach((item) => item.classList.remove('is-active'));
@@ -271,6 +296,7 @@ document.querySelectorAll('[data-filter]').forEach((button) => {
         );
       }
     });
+    updateActiveProjectCaption();
     requestAnimationFrame(() => window.ScrollTrigger?.refresh());
   });
 });

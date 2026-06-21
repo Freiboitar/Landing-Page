@@ -165,7 +165,9 @@ a { text-underline-offset: 5px; }
 .project button:hover img, .project button:hover video { transform: scale(1.035); }
 .project-arrow { position: absolute; right: 18px; top: 18px; display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid currentColor; border-radius: 50%; color: white; font-size: 24px; transition: color .25s, background .25s; }
 .project button:hover .project-arrow { color: var(--ink); background: white; }
-.project footer { display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 20px; padding: 13px 5px 0; font-size: 12px; text-transform: uppercase; }
+.project footer { display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 20px; padding: 13px 5px 0; font-size: 12px; text-transform: uppercase; opacity: 0; transform: translateY(14px); transition: opacity .35s ease, transform .5s cubic-bezier(.2,.75,.2,1); }
+.project.is-caption-active footer,
+.project-stack.is-filtered .project footer { opacity: 1; transform: translateY(0); }
 .project footer b { font-size: 15px; }
 .project-pink { transform: rotate(-.3deg); }
 .project-dark { transform: rotate(.5deg); }
