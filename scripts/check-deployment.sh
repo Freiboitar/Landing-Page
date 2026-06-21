@@ -8,13 +8,14 @@ PROJECT_ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 TMP_DIR=$(mktemp -d)
 trap 'rm -rf "$TMP_DIR"' EXIT HUP INT TERM
 
-FILES="index.html styles.css script.js"
+FILES="index.html styles.css script.js README.md deployment.env scripts/check-deployment.sh"
 FAILED=0
 
 printf 'Checking %s\n' "$PRODUCTION_URL"
 
 for file in $FILES; do
   remote_file="$TMP_DIR/$file"
+  mkdir -p "$(dirname -- "$remote_file")"
 
   if ! curl --fail --silent --show-error --location \
     "$PRODUCTION_URL/$file" --output "$remote_file"; then
