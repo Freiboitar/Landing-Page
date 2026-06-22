@@ -196,15 +196,17 @@ function openProject(id) {
 
   const image = lightbox.querySelector('img');
   const video = lightbox.querySelector('video');
-  image.hidden = Boolean(project.video);
-  video.hidden = !project.video;
+  const videoSource = project.video || project.heroVideo;
+  const usesHeroVideo = !project.video && Boolean(project.heroVideo);
+  image.hidden = Boolean(videoSource);
+  video.hidden = !videoSource;
 
-  if (project.video) {
+  if (videoSource) {
     image.removeAttribute('src');
-    if (project.src) video.poster = project.src;
+    if (project.src && !usesHeroVideo) video.poster = project.src;
     else video.removeAttribute('poster');
-    video.src = project.video;
-    video.muted = false;
+    video.src = videoSource;
+    video.muted = usesHeroVideo;
   } else {
     video.pause();
     video.removeAttribute('src');
@@ -219,7 +221,7 @@ function openProject(id) {
   lightbox.querySelector('.lightbox-year').textContent = project.year;
   lightbox.showModal();
   document.body.classList.add('is-locked');
-  if (project.video) video.play().catch(() => {});
+  if (videoSource) video.play().catch(() => {});
 }
 
 function closeProject() {
