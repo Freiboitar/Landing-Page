@@ -15,6 +15,9 @@ const projects = [
   { id: 'featured-video-02', video: 'assets/featured-video-02.m4v', title: 'Creative Film 02', filter: 'video', category: 'Creative direction / Film', year: '2026' },
   { id: 'featured-video-03', video: 'assets/featured-video-03.m4v', title: 'Creative Film 03', filter: 'video', category: 'Moving image / Production', year: '2026' },
   { id: 'featured-video-04', video: 'assets/featured-video-04.m4v', title: 'Superdisco — Claus Casper', filter: 'video', category: 'Animated event campaign', year: '2026' },
+  { id: 'spotify-canvas-01', video: 'assets/spotify-canvas-01.m4v', title: 'Spotify Canvas 01', filter: 'video', category: 'Music visual / Spotify Canvas', year: '2026', work: false },
+  { id: 'spotify-canvas-02', video: 'assets/spotify-canvas-02.m4v', title: 'Spotify Canvas 02', filter: 'video', category: 'Music visual / Spotify Canvas', year: '2026', work: false },
+  { id: 'spotify-canvas-03', video: 'assets/spotify-canvas-03.m4v', title: 'Spotify Canvas 03', filter: 'video', category: 'Music visual / Spotify Canvas', year: '2026', work: false },
 ];
 
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -147,6 +150,11 @@ const heroSelections = {
     { id: 'midnight-rider', label: 'Visual<br>identity' },
     { id: 'berlin-rider', label: 'Visual<br>concept' },
     { id: 'freiboitar', label: 'Artist<br>identity' },
+  ],
+  canvas: [
+    { id: 'spotify-canvas-01', label: 'Spotify<br>Canvas 01' },
+    { id: 'spotify-canvas-02', label: 'Spotify<br>Canvas 02' },
+    { id: 'spotify-canvas-03', label: 'Spotify<br>Canvas 03' },
   ],
 };
 
