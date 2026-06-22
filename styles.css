@@ -159,7 +159,9 @@ a { text-underline-offset: 5px; }
 .project-stack.is-filtered .project video { max-height: 48vh; }
 .project-stack.is-filtered .project footer { grid-template-columns: 1fr auto; gap: 10px; }
 .project-stack.is-filtered .project footer span:nth-child(2) { display: none; }
-.project { position: sticky; top: 14vh; width: 62%; margin-bottom: 40vh; filter: drop-shadow(0 18px 24px rgba(31,20,10,.14)); transition: opacity .35s, filter .35s; }
+.project { position: sticky; top: 14vh; width: 62%; margin-bottom: 40vh; filter: drop-shadow(0 18px 24px rgba(31,20,10,.14)); transition: opacity .55s ease, filter .55s ease; }
+.project-stack:not(.is-filtered) .project.is-background { opacity: .1; filter: brightness(.68) saturate(.35); pointer-events: none; }
+.project-stack:not(.is-filtered) .project.is-near-background { opacity: .34; filter: blur(2.5px) brightness(.78) saturate(.58) drop-shadow(0 12px 18px rgba(31,20,10,.1)); }
 .project[hidden] { display: none; }
 .project:nth-child(2) { top: 17vh; margin-left: auto; width: 39%; }
 .project:nth-child(3) { top: 20vh; width: 59%; margin-left: 7%; }

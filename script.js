@@ -252,14 +252,22 @@ const captionProjects = [...document.querySelectorAll('.project')];
 const captionProjectsInFocus = new Set();
 
 function updateActiveProjectCaption() {
-  captionProjects.forEach((project) => project.classList.remove('is-caption-active'));
+  captionProjects.forEach((project) => project.classList.remove('is-caption-active', 'is-background', 'is-near-background'));
   if (projectStack.classList.contains('is-filtered')) return;
 
   const activeProject = [...captionProjectsInFocus]
     .filter((project) => !project.hidden)
     .sort((a, b) => captionProjects.indexOf(a) - captionProjects.indexOf(b))
-    .at(-1);
-  (activeProject || captionProjects.find((project) => !project.hidden))?.classList.add('is-caption-active');
+    .at(-1) || captionProjects.find((project) => !project.hidden);
+  if (!activeProject) return;
+
+  const activeIndex = captionProjects.indexOf(activeProject);
+  activeProject.classList.add('is-caption-active');
+  captionProjects.forEach((project, index) => {
+    if (project.hidden || index >= activeIndex) return;
+    project.classList.add('is-background');
+    if (index === activeIndex - 1) project.classList.add('is-near-background');
+  });
 }
 
 const captionObserver = new IntersectionObserver((entries) => {
