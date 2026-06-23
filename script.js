@@ -1,5 +1,5 @@
 const projects = [
-  { id: 'superdisco', src: 'assets/superdisco-motion-poster.png', video: 'assets/featured-video-04.m4v', title: 'Superdisco', filter: 'campaign', filters: ['campaign', 'video'], category: 'Animated event poster', year: '2024' },
+  { id: 'superdisco', src: 'assets/freiboitar-epl.png', video: 'assets/event-poster-animation.m4v', title: 'Freiboitar Eat Play Love', filter: 'campaign', filters: ['campaign', 'video'], category: 'Animated event poster', year: '2024' },
   { id: 'midnight-rider', src: 'assets/cowboy-rider.webp', video: 'assets/visual-identity-cowboy.m4v', title: 'Midnight Rider', filter: 'identity', filters: ['identity', 'video'], category: 'Visual identity', year: '2026' },
   { id: 'video-concept', src: 'assets/eat-play-love-helmich.jpeg', video: 'assets/video-cut-edit.m4v', title: 'Video Concept → Cut', filter: 'video', category: 'Concept / Production', year: '2025' },
   { id: 'berlin-rider', src: 'assets/berlin-rider.png', title: 'Berlin Rider', filter: 'identity', category: 'Visual concept', year: '2026' },
@@ -14,7 +14,7 @@ const projects = [
   { id: 'featured-video-01', video: 'assets/featured-video-01.m4v', title: 'Creative Film 01', filter: 'video', category: 'Video concept / Production', year: '2026' },
   { id: 'featured-video-02', video: 'assets/featured-video-02.m4v', title: 'Creative Film 02', filter: 'video', category: 'Creative direction / Film', year: '2026' },
   { id: 'featured-video-03', video: 'assets/featured-video-03.m4v', title: 'Creative Film 03', filter: 'video', category: 'Moving image / Production', year: '2026' },
-  { id: 'featured-video-04', src: 'assets/superdisco-motion-poster.png', video: 'assets/featured-video-04.m4v', title: 'Superdisco — Claus Casper', filter: 'video', category: 'Animated event campaign', year: '2026' },
+  { id: 'featured-video-04', src: 'assets/superdisco.png', video: 'assets/featured-video-04.m4v', title: 'Superdisco — Claus Casper', filter: 'video', category: 'Animated event campaign', year: '2026' },
   { id: 'spotify-canvas-01', video: 'assets/spotify-canvas-01.m4v', title: 'Spotify Canvas 01', filter: 'video', category: 'Music visual / Spotify Canvas', year: '2026', work: false },
   { id: 'spotify-canvas-02', video: 'assets/spotify-canvas-02.m4v', title: 'Spotify Canvas 02', filter: 'video', category: 'Music visual / Spotify Canvas', year: '2026', work: false },
   { id: 'spotify-canvas-03', video: 'assets/spotify-canvas-03.m4v', title: 'Spotify Canvas 03', filter: 'video', category: 'Music visual / Spotify Canvas', year: '2026', work: false },
